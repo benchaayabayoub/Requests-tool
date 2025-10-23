@@ -1,0 +1,28 @@
+.menuPrincipal{
+    background-color: aliceblue;
+    width: 200px;
+    height:100vh;
+    padding-top: 20px;
+    box-sizing: border-box;
+   
+    
+}
+
+.menuPrincipal ul{
+    list-style: none;
+
+}
+
+.menuPrincipal li{
+    cursor: pointer;
+    margin: 10px;
+    font-size: 15px;
+ 
+    
+}
+
+.menuPrincipal li:hover{
+    color:blue;
+    font-size: 17px;
+    
+}

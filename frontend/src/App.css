@@ -1,0 +1,6 @@
+.App{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;           /* met les enfants côte à côte */
+  height: 100vh;
+  position: fixed;
+}
