@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, {  useState } from "react";
 import style from './Composant.module.css';
 
 function Duplicate(){
@@ -7,6 +7,8 @@ function Duplicate(){
   const [nbFois,setNbfois]=useState(1);
   const [nbrPoints,setNbrPoints]=useState(1);
   const [output,setOutput]=useState("");
+  const [btn,setBtn]=useState(false);
+  const [txtRandom,setTxtRandom]=useState("");
 
 
   function custumDuplicate(){
@@ -38,17 +40,20 @@ function Duplicate(){
 
 const duplicParLigne=()=>{
 
-  let result="";
-  for(let i=0;i<nbFois;i++){
-    result+=input.trim();
-    result+='\n';
-  }
-  setOutput(result);
+
+    const rows=input.split(/\r?\n/).map(r=>r.trim()).filter(r=>r !=="");
+    let result=[];
+ 
+    for(let i=0;i<nbFois;i++){
+    result.push(...rows);
+    }
+ 
+
+  setOutput(result.join("\n"));
+
 }
 
-  const duplicMemeLigne=()=>{
-    setOutput(input.replaceAll("\n","").repeat(nbFois).trim());
-  };
+
 
 
   function Shuffle(){
@@ -60,22 +65,36 @@ const duplicParLigne=()=>{
     setNbfois(1);
     setOutput("");
     setNbrPoints(1);
+    setTxtRandom("");
   };
 
   return(
     <div className={style.div}>
 
     <textarea value={input} onChange={(e)=>setInput(e.target.value)} placeholder="Entrez la liste à dupliquer:"></textarea>
-    <input type="number" min={1} value={nbFois} onChange={(e)=>setNbfois(e.target.value)} size={5}></input>
+    <input type="number" min={1} value={nbFois} onChange={(e)=>setNbfois(Number(e.target.value))} size={5}></input>
     <textarea value={output} readOnly={true}  placeholder="Résultat ici:"></textarea>
 
-    <div className={style.groupechoix}>
-    <input type="number" value={nbrPoints} onChange={(e)=>setNbrPoints(e.target.value)} min={1} size={5}></input>
-    <button onClick={custumDuplicate}>Dupliquer avec points</button>
-    </div>
+   
+    
+   
+    <button onClick={()=>setBtn(inverse=>!inverse)}>custum duplicate</button>
+    {btn &&(
+      <>
+      <button onClick={custumDuplicate}>Dupliquer avec points</button>
+      <input type="number" value={nbrPoints} onChange={(e)=>setNbrPoints(Number(e.target.value))} min={1} size={5}></input>
+     
+
+      <button>Dupliquer avec random</button>
+      <input type="text" value={txtRandom} onChange={(e)=>setTxtRandom(e.target.value)} placeholder="Entrez le tag random"></input>
+     
+     </>
+    )}
+    
+    
+
 
     <button onClick={duplicParLigne}>Dupliquer par ligne</button>
-    <button onClick={duplicMemeLigne}>Dupliquer en une ligne</button>
     <button onClick={Shuffle}> Shuffle Output</button>
     <button onClick={Clear}> Clear </button>
   

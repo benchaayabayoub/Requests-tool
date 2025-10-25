@@ -26,19 +26,28 @@ function Dmarc(){
 
     function creerRecord(){
 
-        let ligne=`${areaInput},_dmarc.${areaInput},TXT,`;
+
+        const domaines=areaInput.split(/\r?\n/).map(d=>d.trim()).filter(d=>d !== "");
+        const result=[];
+        
+        domaines.forEach(domaine=>{
+
+        let ligne=`${domaine},_dmarc.${domaine},TXT,`;
         if(checked1)  ligne+=`v=${select1}; `;
         if(checked2)  ligne+=`p=${select2}; `;
         if(checked3)  ligne+=`sp=${select3}; `;
         if(checked4)  ligne=ligne+`pct=${inp3}; `;
-        if(checked5)  ligne+=`rua=${inp4}@${areaInput}; `;
-        if(checked6)  ligne+=`ruf=${inp5}@${areaInput}; `;
+        if(checked5)  ligne+=`rua=${inp4}@${domaine}; `;
+        if(checked6)  ligne+=`ruf=${inp5}@${domaine}; `;
         if(checked7)  ligne+=`aspf=${select4}; `;
         if(checked8)  ligne+=`adkim=${select5}; `;
         if(checked9)  ligne+=`fo=${inp6};`;
 
-        setAreaResult(ligne);
-        } 
+        result.push(ligne);
+     })
+        
+        setAreaResult(result.join("\n"));
+  } 
 
   
     const clearAll=()=>{
