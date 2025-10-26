@@ -42,9 +42,16 @@ function Duplicate(){
   function addPoints(email,nbpoints){
     const [user,domaine]=email.split("@");
     let lettres=user.split("");
+    let position;
 
     for(let i=0;i<nbpoints;i++){
-      const position=Math.floor(Math.random()* (lettres.length - 1)) +1;
+
+      do{
+        position=Math.floor(Math.random()* (lettres.length - 1)) +1;
+      }
+      while(
+        lettres[position - 1] ==="." || lettres[position] === "."
+      );
       lettres.splice(position,0,".");
     }
 
