@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import style from './Dmarc.module.css';
 
 function Dmarc(){
 
@@ -91,8 +92,10 @@ function Dmarc(){
     
 
     return(
-        <div style={{margin:"10px auto",width:"600px"}}> 
-            <label htmlFor="in1">Version:</label><input type="checkBox" id="in1" checked={checked1} onChange={(e)=>setChecked1(e.target.checked)} /><br/>
+        <div className={style.divDmarcGlobal}> 
+        
+        <div className={style.divInterieure}>
+            <label htmlFor="in1">Version:</label><input type="checkBox" id="in1" checked={checked1} onChange={(e)=>setChecked1(e.target.checked)} />
            {checked1 &&(
            <>
             <select value={select1} onChange={(e)=>setSelect1(e.target.value)}>
@@ -100,11 +103,14 @@ function Dmarc(){
                 <option>DMARC2</option>
                 <option>DMARC3</option>
             </select>
-            <br/>
+            
             </>
+          
            )}
 
-            <label htmlFor="in2">Politque:</label><input type="checkBox" id="in2" checked={checked2} onChange={(e)=>setChecked2(e.target.checked)}/><br/>
+        </div>
+        <div className={style.divInterieure}>
+            <label htmlFor="in2">Politque:</label><input type="checkBox" id="in2" checked={checked2} onChange={(e)=>setChecked2(e.target.checked)}/>
            {checked2 && (
             <>
             <select value={select2} onChange={(e)=>setSelect2(e.target.value)}>
@@ -112,13 +118,13 @@ function Dmarc(){
                 <option>quarantine</option>
                 <option>reject</option>
             </select>
-            <br/>
+            
             </>
            )
            }
-
-
-            <label htmlFor="in3">Politque Sous domaine:</label><input type="checkBox" id="in3" checked={checked3} onChange={(e)=>setChecked3(e.target.checked)}/><br/>
+        </div>
+        <div className={style.divInterieure}>
+            <label htmlFor="in3">Politque Sous domaine:</label><input type="checkBox" id="in3" checked={checked3} onChange={(e)=>setChecked3(e.target.checked)}/>
            {checked3 && (
             <>
              <select value={select3} onChange={(e)=>setSelect3(e.target.value)}>
@@ -126,71 +132,100 @@ function Dmarc(){
                 <option>quarantine</option>
                 <option>reject</option>
              </select>
-             <br/>
+            
             </>
            )}
-
-            <label htmlFor="in4">pct:</label><input type="checkBox" id="in4" checked={checked4} onChange={(e)=>setChecked4(e.target.checked)}/><br/>
+        </div>
+        <div className={style.divInterieure}>
+            <label htmlFor="in4">pct:</label><input type="checkBox" id="in4" checked={checked4} onChange={(e)=>setChecked4(e.target.checked)}/>
             {checked4 && (
             <>
-             <input type="number" value={inp3} onChange={(e)=>setInp3(e.target.value)}/><br/>
+             <input type="number" value={inp3} onChange={(e)=>setInp3(e.target.value)}/>
             </>
            )}
 
-
-            <label htmlFor="in5">rua:</label><input type="checkBox" id="in5" checked={checked5} onChange={(e)=>setChecked5(e.target.checked)}/><br/>
+        </div>
+        <div className={style.divInterieure}>
+            <label htmlFor="in5">rua:</label><input type="checkBox" id="in5" checked={checked5} onChange={(e)=>setChecked5(e.target.checked)}/>
            {checked5 && (
             <>
-            <input type="text" value={inp4} onChange={(e)=>setInp4(e.target.value)}/><br/>
+            <input type="text" value={inp4} onChange={(e)=>setInp4(e.target.value)}/>
             </>
            )
 
            }
-
-            <label htmlFor="in6">ruf:</label><input type="checkBox" id="in6" checked={checked6} onChange={(e)=>setChecked6(e.target.checked)}/><br/>
+        </div>
+        <div className={style.divInterieure}>
+            <label htmlFor="in6">ruf:</label><input type="checkBox" id="in6" checked={checked6} onChange={(e)=>setChecked6(e.target.checked)}/>
            {checked6 && (
             <>
-            <input type="text" value={inp5} onChange={(e)=>setInp5(e.target.value)}/><br/>
+            <input type="text" value={inp5} onChange={(e)=>setInp5(e.target.value)}/>
             </>
            )}
-
-            <label htmlFor="in7">aspf:</label><input type="checkBox" id="in7" checked={checked7} onChange={(e)=>setChecked7(e.target.checked)}/><br/>
+        </div>
+        <div className={style.divInterieure}>
+            <label htmlFor="in7">aspf:</label><input type="checkBox" id="in7" checked={checked7} onChange={(e)=>setChecked7(e.target.checked)}/>
            {checked7 && (
             <>
              <select value={select4} onChange={(e)=>setSelect4(e.target.value)}>
                 <option>s</option>
                 <option>r</option>
             </select>
-            <br/>           
+                    
             </>
            )}
-
-            <label htmlFor="in8">adkim:</label><input type="checkBox" id="in8" checked={checked8} onChange={(e)=>setChecked8(e.target.checked)} /><br/>
+        </div>
+        <div className={style.divInterieure}>
+            <label htmlFor="in8">adkim:</label><input type="checkBox" id="in8" checked={checked8} onChange={(e)=>setChecked8(e.target.checked)} />
            {checked8 && (
             <>
              <select value={select5} onChange={(e)=>setSelect5(e.target.value)}>
                 <option>s</option>
                 <option>r</option>
                 </select>
-            <br/>          
+                     
             </>
            )
 
            }
-
-            <label htmlFor="in9">fo:</label><input type="checkBox" id="in9" checked={checked9} onChange={(e)=>setChecked9(e.target.checked)}/><br/>
+        </div>
+        <div className={style.divInterieure}>
+            <label htmlFor="in9">fo:</label><input type="checkBox" id="in9" checked={checked9} onChange={(e)=>setChecked9(e.target.checked)}/>
            {checked9 && (
             <>
-            <input type="number" value={inp6} onChange={(e)=>setInp6(e.target.value)}/><br/>
+            <input type="number" value={inp6} onChange={(e)=>setInp6(e.target.value)}/>
             </>
            )}
+          
+        </div>
+        <div style={style.divArea}>
+           <textarea placeholder="Entrez la liste des domaines" value={areaInput} onChange={(e)=>setAreaInput(e.target.value)}></textarea>
+        </div>
 
-           
-           <textarea style={{width:"400px",height:"400px"}} placeholder="Entrez la liste des domaines" value={areaInput} onChange={(e)=>setAreaInput(e.target.value)}></textarea><br/>
+       
             <button onClick={()=>areaInput && creerRecord()}>Make record</button>
             <button onClick={clearAll}>Clear All</button>
-            <button onClick={reinitialiser}>réinitiliaser</button><br/>
-            <textarea style={{width:"800px",height:"400px"}} placeholder="Résultat Ici:" value={areaResult} readOnly ></textarea>
+            <button onClick={reinitialiser}>réinitiliaser</button>
+           
+           <button onClick={() => navigator.clipboard.writeText(areaResult)}>
+            Copier résultat
+           </button>
+
+           
+
+            {areaResult && <div className={style.divResult}>
+            {areaResult ? areaResult.split("\n").map((ligne,indice)=>(
+              <div key={indice} className={style.divLigneResult}>{ligne}</div>
+          )) : <span>Records...</span>}
+          
+          </div>}
+
+
+
+      
+           
+  
+
         </div>
     );
 }

@@ -11,9 +11,12 @@ import "./App.css";
 
 
 function App(){
-  return(
-    <div className="text-center p-10 bg-blue-100">
 
+  const [composantChoisi,setComposantChoisi]=useState("request");
+
+  return(
+    <div>
+      <Dmarc/>
     </div>
   );
 }
