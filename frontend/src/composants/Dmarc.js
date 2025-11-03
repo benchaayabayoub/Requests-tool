@@ -92,8 +92,11 @@ function Dmarc(){
     
 
     return(
-        <div className={style.divDmarcGlobal}> 
-        
+        <div className={style.divGlobal}> 
+
+        <div className={style.divContenu}>
+     
+
         <div className={style.divInterieure}>
             <label htmlFor="in1">Version:</label><input type="checkBox" id="in1" checked={checked1} onChange={(e)=>setChecked1(e.target.checked)} />
            {checked1 &&(
@@ -107,9 +110,8 @@ function Dmarc(){
             </>
           
            )}
-
-        </div>
-        <div className={style.divInterieure}>
+     
+       
             <label htmlFor="in2">Politque:</label><input type="checkBox" id="in2" checked={checked2} onChange={(e)=>setChecked2(e.target.checked)}/>
            {checked2 && (
             <>
@@ -122,8 +124,9 @@ function Dmarc(){
             </>
            )
            }
-        </div>
-        <div className={style.divInterieure}>
+        
+
+       
             <label htmlFor="in3">Politque Sous domaine:</label><input type="checkBox" id="in3" checked={checked3} onChange={(e)=>setChecked3(e.target.checked)}/>
            {checked3 && (
             <>
@@ -135,8 +138,7 @@ function Dmarc(){
             
             </>
            )}
-        </div>
-        <div className={style.divInterieure}>
+   
             <label htmlFor="in4">pct:</label><input type="checkBox" id="in4" checked={checked4} onChange={(e)=>setChecked4(e.target.checked)}/>
             {checked4 && (
             <>
@@ -144,8 +146,7 @@ function Dmarc(){
             </>
            )}
 
-        </div>
-        <div className={style.divInterieure}>
+  
             <label htmlFor="in5">rua:</label><input type="checkBox" id="in5" checked={checked5} onChange={(e)=>setChecked5(e.target.checked)}/>
            {checked5 && (
             <>
@@ -154,16 +155,14 @@ function Dmarc(){
            )
 
            }
-        </div>
-        <div className={style.divInterieure}>
+
             <label htmlFor="in6">ruf:</label><input type="checkBox" id="in6" checked={checked6} onChange={(e)=>setChecked6(e.target.checked)}/>
            {checked6 && (
             <>
             <input type="text" value={inp5} onChange={(e)=>setInp5(e.target.value)}/>
             </>
            )}
-        </div>
-        <div className={style.divInterieure}>
+     
             <label htmlFor="in7">aspf:</label><input type="checkBox" id="in7" checked={checked7} onChange={(e)=>setChecked7(e.target.checked)}/>
            {checked7 && (
             <>
@@ -174,8 +173,7 @@ function Dmarc(){
                     
             </>
            )}
-        </div>
-        <div className={style.divInterieure}>
+        
             <label htmlFor="in8">adkim:</label><input type="checkBox" id="in8" checked={checked8} onChange={(e)=>setChecked8(e.target.checked)} />
            {checked8 && (
             <>
@@ -188,8 +186,7 @@ function Dmarc(){
            )
 
            }
-        </div>
-        <div className={style.divInterieure}>
+       
             <label htmlFor="in9">fo:</label><input type="checkBox" id="in9" checked={checked9} onChange={(e)=>setChecked9(e.target.checked)}/>
            {checked9 && (
             <>
@@ -198,21 +195,52 @@ function Dmarc(){
            )}
           
         </div>
-        <div style={style.divArea}>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div className={style.divArea}>
            <textarea placeholder="Entrez la liste des domaines" value={areaInput} onChange={(e)=>setAreaInput(e.target.value)}></textarea>
         </div>
 
-       
-            <button onClick={()=>areaInput && creerRecord()}>Make record</button>
+        
+        </div>
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div className={style.divbuttons}>
+        <button onClick={()=>areaInput && creerRecord()}>Make record</button>
             <button onClick={clearAll}>Clear All</button>
-            <button onClick={reinitialiser}>réinitiliaser</button>
+            <button onClick={reinitialiser}>Reset</button>
            
            <button onClick={() => navigator.clipboard.writeText(areaResult)}>
-            Copier résultat
+            Copy
            </button>
+         </div>
 
-           
-
+       
             {areaResult && <div className={style.divResult}>
             {areaResult ? areaResult.split("\n").map((ligne,indice)=>(
               <div key={indice} className={style.divLigneResult}>{ligne}</div>
@@ -220,13 +248,15 @@ function Dmarc(){
           
           </div>}
 
+  </div>
 
 
-      
-           
-  
 
-        </div>
+
     );
+
+
+
+
 }
 export default Dmarc;

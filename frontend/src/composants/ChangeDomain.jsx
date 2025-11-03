@@ -22,14 +22,29 @@ function ChangeDomain(){
         setAreaResult(tableau.join("\n"));
     }
 
+
+
+    function clear(){
+        setSep("");
+        setAreaIp("");
+        setAreaDom("");
+        setAreaResult("");
+    }
+
     return(
-        <div className={styles.div}>
+        <div className={styles.divGlobal}>
             <label htmlFor="txtAreaIp">IPS:</label><textarea id="txtAreaIp" onChange={(e)=>setAreaIp(e.target.value)} value={areaIp}></textarea>
             <label htmlFor="txtAreaDom">Domains:</label><textarea id="txtAreaDom" onChange={(e)=>setAreaDom(e.target.value)} value={areaDom}></textarea>
-            <label htmlFor="txtSep">Séparateur:</label><input type="text" id="txtSep" size={3} placeholder=";,:!?.."
+            <label htmlFor="txtSep">Separator:</label><input type="text" id="txtSep" placeholder=";,:.."
             onChange={(e)=>setSep(e.target.value)} value={sep}></input>
-            <button onClick={generer}>Générer</button>
-            <label htmlFor="txtAreaResult">Résultat:</label><textarea id="txtAreaResult" value={areaResult}></textarea>
+
+            <div className={styles.divButtons}>
+            <button onClick={generer}>Generate</button>
+            <button onClick={()=>navigator.clipboard.writeText(areaResult)}>Copy</button>
+            <button onClick={clear}>Clear</button>
+            </div>
+
+            <label htmlFor="txtAreaResult">Result:</label><textarea className={styles.result} id="txtAreaResult" value={areaResult}></textarea>
             
 
         </div>

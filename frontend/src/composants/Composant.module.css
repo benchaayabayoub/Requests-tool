@@ -1,16 +1,91 @@
-.div{
-    background-color: aqua;
+.divGlobal {
+  max-width: 800px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px black;   /* rgba(0, 0, 0, 0.1);  */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.divGlobal label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333333;
+}
+
+.divGlobal textarea
+{
+  width: 100%;
+  height: 90px;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  font-size: 14px;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.8s;
+}
+
+.divGlobal input[type="text"]{
+    padding: 10px 12px;
+    height: 30px;
+    width: 20%;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.8s;
+}
+
+.divGlobal textarea:hover,
+.divGlobal input[type="text"]:hover{
+  border-color:#007bff;
+}
+
+.divGlobal textarea:focus,
+.divGlobal input[type="text"]:focus {
+  border-color:  #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+
+.divButtons{
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 100lvb;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    gap:20px;  /* espace entre elements qui sont inside div : necessite display flex ou grid*/  
-    
+    gap:12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.divButtons button {
+  /*align-self: flex-start;*/
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.divButtons button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.divButtons button:active {
+  transform: translateX(10px);
 }
 
 
 
+
+.result {
+  background-color: #f9f9f9;
+  border-color: #b3b3b3;
+  cursor: not-allowed;
+}

@@ -1,5 +1,5 @@
 import React, {  useState } from "react";
-import style from './Composant.module.css';
+import style from './Duplicate.module.css';
 
 function Duplicate(){
   
@@ -115,14 +115,14 @@ const duplicParLigne=()=>{
   };
 
   return(
-    <div className={style.div}>
+    <div className={style.divGlobal}>
 
     <textarea value={input} onChange={(e)=>setInput(e.target.value)} placeholder="Entrez la liste à dupliquer:"></textarea>
     <label htmlFor="nombreFois">Nombre de duplication souhaité:</label><input type="number" id="nombreFois" min={1} value={nbFois} onChange={(e)=>setNbfois(Number(e.target.value))} size={5}></input>
     <textarea value={output} readOnly={true}  placeholder="Résultat ici:"></textarea>
 
    
-    
+    <div className={style.divbuttons}>
    
     <button onClick={()=>setBtn(inverse=>!inverse)}>custum duplicate</button>
     {btn &&(
@@ -137,6 +137,7 @@ const duplicParLigne=()=>{
      </>
     )}
     
+   
     
 
 
@@ -144,6 +145,8 @@ const duplicParLigne=()=>{
     <button onClick={Shuffle}> Shuffle Output</button>
     <button onClick={Clear}> Clear </button>
   
+     </div>
+
     </div>
   );
 }
