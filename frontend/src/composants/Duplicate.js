@@ -117,24 +117,24 @@ const duplicParLigne=()=>{
   return(
     <div className={style.divGlobal}>
 
-    <textarea value={input} onChange={(e)=>setInput(e.target.value)} placeholder="Entrez la liste à dupliquer:"></textarea>
-    <label htmlFor="nombreFois">Nombre de duplication souhaité:</label><input type="number" id="nombreFois" min={1} value={nbFois} onChange={(e)=>setNbfois(Number(e.target.value))} size={5}></input>
-    <textarea value={output} readOnly={true}  placeholder="Résultat ici:"></textarea>
+    <textarea value={input} onChange={(e)=>setInput(e.target.value)} placeholder="user@domain.com"></textarea>
+    <label htmlFor="nombreFois">Nombre de duplication souhaité:</label><input type="number" id="nombreFois" min={1} value={nbFois} onChange={(e)=>setNbfois(Number(e.target.value))}></input>
+    <textarea value={output} readOnly={true}  placeholder="Output.." className={style.result}></textarea>
 
    
     <div className={style.divbuttons}>
    
     <button onClick={()=>setBtn(inverse=>!inverse)}>custum duplicate</button>
     {btn &&(
-      <>
+      <div className={style.divcachedButtons}>
       <button onClick={custumDuplicatePoints}>Dupliquer avec points</button>
-      <label htmlFor="nombrePoints">Nombre de points souhaité:</label> <input type="number" id="nombrePoints" value={nbrPoints} onChange={(e)=>setNbrPoints(Number(e.target.value))} min={1} size={5}></input>
+      <label htmlFor="nombrePoints">Nombre de points souhaité:</label> <input type="number" id="nombrePoints" value={nbrPoints} onChange={(e)=>setNbrPoints(Number(e.target.value))} min={1}></input>
      
 
-      <button onClick={CustumDuplicateRandom}>Dupliquer avec random</button>
-      <label htmlFor="nombrePoints">Nombre de random souhaité:</label><input type="number" value={nbrRandom} onChange={(e)=>setNbrRandom(Number(e.target.value))} placeholder="Entrez Nombre de random a generer" min={1} size={5}></input>
+      <button onClick={CustumDuplicateRandom}>Dupliquer avec random</button><br/>
+      <label htmlFor="nombrePoints">Nombre de random souhaité:</label><input type="number" value={nbrRandom} onChange={(e)=>setNbrRandom(Number(e.target.value))} placeholder="Entrez Nombre de random a generer" min={1} ></input>
      
-     </>
+     </div>
     )}
     
    

@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* occupe tout l’écran */
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* joli dégradé */
+}
+
+form{
+
+    max-width: 400px;
+    background-color:  white;
+    gap:20px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px black;
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px auto; 
+    
+}
+
+
+form label{
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333333;
+}
+
+form input[type="text"],
+     input[type="email"],
+     input[type="password"]{
+
+    padding: 10px 12px;
+    width:50%;
+    height: 30px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: box-shadow 0.1s, border-color 0.8s;
+}
+
+
+form input[type="text"]:hover,
+     input[type="email"]:hover,
+     input[type="password"]:hover{
+
+     border-color: #007bff;
+}
+
+
+form input[type="text"]:focus,
+     input[type="email"]:focus,
+     input[type="password"]:focus{
+
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    border-color: #007bff;
+    outline: none;
+}
+
+form button{
+    color:#ffffff;
+    background-color: #007bff;
+    font-size: 14px;
+    width:50%;
+    align-self: flex-start;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+form button:hover{
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+
+
+form button:active{
+    transform: translateX(10px);
+}
+
+
+  

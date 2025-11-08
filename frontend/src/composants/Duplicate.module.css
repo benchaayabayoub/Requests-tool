@@ -61,6 +61,7 @@
 .divbuttons{
   display: flex; 
   justify-content: center; 
+  flex-wrap: wrap; /* ✅ permet le retour à la ligne automatique */
   gap: 12px; 
   margin-top: 20px;
   margin-bottom: 10px;
@@ -90,4 +91,22 @@
 
 .divbuttons button:active{
     transform: translateX(10px);
+}
+
+
+
+.divcachedButtons{
+  display: flex;
+  flex-wrap: wrap;        /* ✅ les champs passent à la ligne si besoin */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+.result {
+  background-color: #f9f9f9;
+  border-color: #b3b3b3;
+  cursor: not-allowed;
 }

@@ -1,0 +1,66 @@
+
+const bcrypt=require("bcryptjs");
+const modelU=require("../models/User.js");
+//const jwtToken=require("jsonwebtoken");
+
+
+// route insc..:
+
+const inscription=async(req,res)=>{
+
+    try {
+        
+    const {nom,email,pass}=req.body;
+    const emailExist=await modelU.findOne({email});
+    if(emailExist){
+        return res.status(400).json({msg:"User already exist with this email!"});
+    }
+
+    const salt=await bcrypt.genSalt(10);
+    const passCrypte=await bcrypt.hash(pass,salt);
+
+    const nouveauUtilisateur=new modelU({
+        nom,email,pass:passCrypte
+    });
+
+
+    await nouveauUtilisateur.save();
+    res.status(201).json({msg:"User added successfully"});
+
+    } catch (error) {
+     res.status(500).json({msg:"Server error!"});    
+    }
+
+};
+
+
+
+
+// route conx :
+
+const connexion=async(req,res)=>{
+    try {
+        const {email,pass}=req.body;
+        const checkUser=await modelU.findOne({email});
+        if(!checkUser){
+            return res.status(400).json({msg:"Email does not exist"});
+            
+        }
+        const checkPass=await bcrypt.compare(pass,checkUser.pass);
+        if(!checkPass){
+            
+            return res.status(400).json({msg:"Password incorrect"});
+            
+        }
+
+
+        res.status(201).json({msg:"Welcome",user:checkUser});
+
+    } catch (error) {
+       
+        res.status(500).json({msg:"Server error!"});
+    }
+}
+
+
+module.exports={inscription,connexion};

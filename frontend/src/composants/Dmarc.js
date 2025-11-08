@@ -208,7 +208,7 @@ function Dmarc(){
 
 
         <div className={style.divArea}>
-           <textarea placeholder="Entrez la liste des domaines" value={areaInput} onChange={(e)=>setAreaInput(e.target.value)}></textarea>
+           <textarea placeholder="Domains list.." value={areaInput} onChange={(e)=>setAreaInput(e.target.value)}></textarea>
         </div>
 
         
