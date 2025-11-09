@@ -19,6 +19,8 @@
   gap:8px;
 }
 
+
+
 /* effet au survol du header */
 .barriere:hover {
   background: linear-gradient(90deg, #357ab8, #4a90e2);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Duplicate from "./Duplicate";
 import Dmarc from "./Dmarc";
 import ChangeDomain from "./ChangeDomain";
@@ -7,15 +7,38 @@ import { IoDuplicate } from "react-icons/io5";
 import { LiaExchangeAltSolid } from "react-icons/lia";
 import { GrDomain } from "react-icons/gr";
 import { RiAppsLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 export default function Home(){
 
-    const [composantAffiche,setComposantAffiche]=useState("Dmarc");
+    const navigate=useNavigate();
+    const [composantAffiche,setComposantAffiche]=useState("ChangeDomain");
+
+ 
+    useEffect(()=>{
+        const userEmail=localStorage.getItem("userEmail");
+        const userNom=localStorage.getItem("userName");
+        if(!userEmail){
+            navigate("/connexionn");
+        }
+        else{
+            console.log(userNom);
+        }
+    },[navigate]);
+
+
+    
+
+    const logOut=()=>{
+        localStorage.removeItem("userEmail");
+        navigate("/connexionn");
+    }
+
 
     return(
         <>
        
-        <header className={styles.barriere}><RiAppsLine className={styles.iconeheader}/>EMS Request Tool</header>
+        <header className={styles.barriere}><RiAppsLine className={styles.iconeheader}/>EMS Request Tool<button onClick={logOut}>Logout</button><span>Bienvenu {localStorage.getItem("userNom")}</span></header>
         <div style={{width:"100%" ,display:"flex"}}>
        
         <aside className={styles.menugauche}>

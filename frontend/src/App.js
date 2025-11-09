@@ -12,9 +12,9 @@ function App(){
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Inscription/>}/>
-        <Route path="/inscription" element={<Inscription/>}/>
-        <Route path="/connexion" element={<Connexion/>}/>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/inscriptionn" element={<Inscription/>}/>
+        <Route path="/connexionn" element={<Connexion/>}/>
+        <Route path="/homee" element={<Home/>}/>
           
         
       </Routes>

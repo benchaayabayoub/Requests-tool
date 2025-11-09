@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styles from'./Inscription.module.css';
 import {Link, useNavigate} from "react-router-dom";
-import Connexion from "./Connexion";
+
 
 function Insciption(){
 
@@ -23,7 +23,7 @@ function Insciption(){
       alert(res.data.msg);
      
       if(res.data.msg==="User added successfully"){
-        navigate("/connexion");
+        navigate("/connexionn");
       }
       
     } catch (error) {
@@ -42,7 +42,7 @@ function Insciption(){
     <label htmlFor="txtNom">Email:</label><input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} id="txtEmail"/>
     <label htmlFor="txtNom">Password:</label><input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} id="txtPass"/>
     <button type="submit">Sign in</button>
-     Have an account ?<Link to="../Connexion">connect instead!</Link>
+     Have an account ?<Link to="../connexionn">connect instead!</Link>
     </form>
     </div>
   );

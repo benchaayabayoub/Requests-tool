@@ -7,6 +7,7 @@ function Connexion(){
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const navigate=useNavigate();
+    
 
     const onHandleSubmit=async (e)=>{
         e.preventDefault();
@@ -20,7 +21,9 @@ function Connexion(){
                 alert(res.data.msg+" "+res.data.user.email);
                 
             if(res.data.msg==="Welcome"){
-                navigate("/home");
+                localStorage.setItem("userEmail",res.data.user.email);
+                localStorage.setItem("userNom",res.data.user.nom);
+                navigate("/homee");
             }
 
         } catch (error) {
@@ -35,7 +38,7 @@ function Connexion(){
         <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}></input>
         <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
         <button type="submit">Sign up</button>
-        Not a member? <Link to="../Inscription">Create an account</Link>
+        Not a member? <Link to="/inscriptionn">Create an account</Link>
         </form>
 
         </div>
