@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styles from'./Inscription.module.css';
+import {Link, useNavigate} from "react-router-dom";
+import Connexion from "./Connexion";
 
 function Insciption(){
 
   const [nom,setNom]=useState("");
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
-
+  const navigate=useNavigate();
 
   const onHandleSubmit= async (e)=>{
     e.preventDefault();
@@ -17,10 +19,11 @@ function Insciption(){
         alert("Fill all inputs please!");
         return;
       }
-      else{
       const res=await axios.post("http://localhost:6002/api/auth/inscription",{nom:nom,email:email,pass:password});
       alert(res.data.msg);
      
+      if(res.data.msg==="User added successfully"){
+        navigate("/connexion");
       }
       
     } catch (error) {
@@ -39,7 +42,7 @@ function Insciption(){
     <label htmlFor="txtNom">Email:</label><input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} id="txtEmail"/>
     <label htmlFor="txtNom">Password:</label><input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} id="txtPass"/>
     <button type="submit">Sign in</button>
-    <a href="">have an account ? connect instead!</a>
+     Have an account ?<Link to="../Connexion">connect instead!</Link>
     </form>
     </div>
   );
