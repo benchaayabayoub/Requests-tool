@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from './Dmarc.module.css';
 
 function Dmarc(){
@@ -12,6 +12,7 @@ function Dmarc(){
     const [checked7,setChecked7]=useState(false);
     const [checked8,setChecked8]=useState(false);
     const [checked9,setChecked9]=useState(false);
+    const [checkedAll,setCheckedAll]=useState(false);
 
     const [select1,setSelect1]=useState("DMARC1");
     const [select2,setSelect2]=useState("none"); 
@@ -89,6 +90,20 @@ function Dmarc(){
         setChecked8(false);
         setChecked9(false);
     }
+
+
+    useEffect(()=>{
+        setChecked1(checkedAll);
+        setChecked2(checkedAll);
+        setChecked3(checkedAll);
+        setChecked4(checkedAll);
+        setChecked5(checkedAll);
+        setChecked6(checkedAll);
+        setChecked7(checkedAll);
+        setChecked8(checkedAll);
+        setChecked9(checkedAll);
+        
+    },[checkedAll])
     
 
     return(
@@ -98,6 +113,7 @@ function Dmarc(){
      
 
         <div className={style.divInterieure}>
+            <label className={style.lblSelectAll} htmlFor="inAll">Select All</label><input type="checkbox" id="inAll" checked={checkedAll} onChange={(e)=>setCheckedAll(e.target.checked)}/>
             <label htmlFor="in1">Version:</label><input type="checkBox" id="in1" checked={checked1} onChange={(e)=>setChecked1(e.target.checked)} />
            {checked1 &&(
            <>

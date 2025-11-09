@@ -18,11 +18,11 @@ function Connexion(){
             }
            
                 const res=await axios.post("http://localhost:6002/api/auth/connexion",{email:email,pass:password});
-                alert(res.data.msg+" "+res.data.user.email);
+                alert(res.data.msg+" "+res.data.user.nom);
                 
             if(res.data.msg==="Welcome"){
                 localStorage.setItem("userEmail",res.data.user.email);
-                localStorage.setItem("userNom",res.data.user.nom);
+                localStorage.setItem("userName",res.data.user.nom);
                 navigate("/homee");
             }
 

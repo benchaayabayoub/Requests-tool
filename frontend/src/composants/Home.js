@@ -17,14 +17,19 @@ export default function Home(){
  
     useEffect(()=>{
         const userEmail=localStorage.getItem("userEmail");
-        const userNom=localStorage.getItem("userName");
         if(!userEmail){
             navigate("/connexionn");
         }
-        else{
-            console.log(userNom);
-        }
+        
     },[navigate]);
+
+
+    const [nomUser,setNomUser]=useState("");
+    useEffect(()=>{
+        const userName=localStorage.getItem("userName");
+        if(userName)
+            setNomUser(userName);
+    },[]);
 
 
     
@@ -38,7 +43,7 @@ export default function Home(){
     return(
         <>
        
-        <header className={styles.barriere}><RiAppsLine className={styles.iconeheader}/>EMS Request Tool<button onClick={logOut}>Logout</button><span>Bienvenu {localStorage.getItem("userNom")}</span></header>
+        <header className={styles.barriere}><RiAppsLine className={styles.iconeheader}/>EMS Request Tool<button onClick={logOut}>Logout</button><span>Bienvenu {nomUser}</span></header>
         <div style={{width:"100%" ,display:"flex"}}>
        
         <aside className={styles.menugauche}>
