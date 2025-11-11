@@ -111,28 +111,28 @@ const duplicParLigne=()=>{
     setNbfois(1);
     setOutput("");
     setNbrPoints(1);
-    setNbrRandom("");
+    setNbrRandom(1);
   };
 
   return(
     <div className={style.divGlobal}>
 
     <textarea value={input} onChange={(e)=>setInput(e.target.value)} placeholder="user@domain.com"></textarea>
-    <label htmlFor="nombreFois">Nombre de duplication souhaité:</label><input type="number" id="nombreFois" min={1} value={nbFois} onChange={(e)=>setNbfois(Number(e.target.value))}></input>
+    <label htmlFor="nombreFois">Desired duplication count:</label><input type="number" id="nombreFois" min={1} value={nbFois} onChange={(e)=>setNbfois(Number(e.target.value))}></input>
     <textarea value={output} readOnly={true}  placeholder="Output.." className={style.result}></textarea>
 
    
     <div className={style.divbuttons}>
    
-    <button onClick={()=>setBtn(inverse=>!inverse)}>custum duplicate</button>
+    <button onClick={()=>setBtn(inverse=>!inverse)}>Custum duplication</button>
     {btn &&(
       <div className={style.divcachedButtons}>
-      <button onClick={custumDuplicatePoints}>Dupliquer avec points</button>
-      <label htmlFor="nombrePoints">Nombre de points souhaité:</label> <input type="number" id="nombrePoints" value={nbrPoints} onChange={(e)=>setNbrPoints(Number(e.target.value))} min={1}></input>
+      <button onClick={custumDuplicatePoints}>Duplicate including points</button>
+      <label htmlFor="nombrePoints">Desired points count:</label> <input type="number" id="nombrePoints" value={nbrPoints} onChange={(e)=>setNbrPoints(Number(e.target.value))} min={1}></input>
      
 
-      <button onClick={CustumDuplicateRandom}>Dupliquer avec random</button><br/>
-      <label htmlFor="nombrePoints">Nombre de random souhaité:</label><input type="number" value={nbrRandom} onChange={(e)=>setNbrRandom(Number(e.target.value))} placeholder="Entrez Nombre de random a generer" min={1} ></input>
+      <button onClick={CustumDuplicateRandom}>Duplicate with +random</button><br/>
+      <label htmlFor="nombrePoints">Desired random count:</label><input type="number" value={nbrRandom} onChange={(e)=>setNbrRandom(Number(e.target.value))} min={1} ></input>
      
      </div>
     )}
@@ -141,9 +141,10 @@ const duplicParLigne=()=>{
     
 
 
-    <button onClick={duplicParLigne}>Dupliquer par ligne</button>
-    <button onClick={Shuffle}> Shuffle Output</button>
-    <button onClick={Clear}> Clear </button>
+    <button onClick={duplicParLigne}>Basic duplication</button>
+    <button onClick={Shuffle}>Shuffle</button>
+    <button onClick={()=>navigator.clipboard.writeText(output)}>Copy</button>
+    <button onClick={Clear}>Clear</button>
   
      </div>
 

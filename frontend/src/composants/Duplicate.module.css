@@ -97,12 +97,18 @@
 
 .divcachedButtons{
   display: flex;
-  flex-wrap: wrap;        /* ✅ les champs passent à la ligne si besoin */
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-bottom: 50px;
+  background-color:aliceblue ;
 }
+
+
+.divcachedButtons button{
+  background-color: cornflowerblue;
+}
+
 
 
 .result {

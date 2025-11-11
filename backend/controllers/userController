@@ -25,7 +25,7 @@ const inscription=async(req,res)=>{
 
 
     await nouveauUtilisateur.save();
-    res.status(201).json({msg:"User added successfully"});
+    res.status(201).json({msg:"Your account has been created!"});
 
     } catch (error) {
      res.status(500).json({msg:"Server error!"});    

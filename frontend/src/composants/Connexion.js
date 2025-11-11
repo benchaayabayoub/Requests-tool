@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link,useNavigate } from "react-router-dom";
+import styles from "./Inscription.module.css";
 
 function Connexion(){
 
@@ -9,7 +10,7 @@ function Connexion(){
     const navigate=useNavigate();
     
 
-    const onHandleSubmit=async (e)=>{
+    const submitConnexion=async (e)=>{
         e.preventDefault();
         try {
             if(email==="" || password===""){
@@ -34,9 +35,10 @@ function Connexion(){
 
     return(
         <div>
-        <form onSubmit={onHandleSubmit}>
-        <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}></input>
-        <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}></input>
+        <form className={styles.formm} onSubmit={submitConnexion}>
+        <h2>Sign In</h2>
+        <label htmlFor="txtEmail">Email:</label><input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} id="txtEmail"></input>
+        <label htmlFor="txtPass">Password:</label><input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} id="txtPass"></input>
         <button type="submit">Sign up</button>
         Not a member? <Link to="/inscriptionn">Create an account</Link>
         </form>

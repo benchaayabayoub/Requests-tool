@@ -6,7 +6,8 @@ import styles from './Home.module.css';
 import { IoDuplicate } from "react-icons/io5";
 import { LiaExchangeAltSolid } from "react-icons/lia";
 import { GrDomain } from "react-icons/gr";
-import { RiAppsLine } from "react-icons/ri";
+import { SiJoomla } from "react-icons/si";
+import { RiShutDownLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 
 export default function Home(){
@@ -43,7 +44,17 @@ export default function Home(){
     return(
         <>
        
-        <header className={styles.barriere}><RiAppsLine className={styles.iconeheader}/>EMS Request Tool<button onClick={logOut}>Logout</button><span>Bienvenu {nomUser}</span></header>
+        <header className={styles.barriere}>
+            <div className={styles.leftPart}>
+            <SiJoomla className={styles.iconeheader}/>
+            <span>EMS Request Tool</span>
+            </div>
+            <div className={styles.rightPart}>
+            <span>{nomUser}</span>
+            <RiShutDownLine title="logout" className={styles.iconeLogOut} onClick={logOut}>Logout</RiShutDownLine>
+            </div>
+        </header>
+
         <div style={{width:"100%" ,display:"flex"}}>
        
         <aside className={styles.menugauche}>

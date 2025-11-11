@@ -12,7 +12,7 @@ function Dmarc(){
     const [checked7,setChecked7]=useState(false);
     const [checked8,setChecked8]=useState(false);
     const [checked9,setChecked9]=useState(false);
-    const [checkedAll,setCheckedAll]=useState(false);
+    const [checkedAll,setCheckedAll]=useState(true);
 
     const [select1,setSelect1]=useState("DMARC1");
     const [select2,setSelect2]=useState("none"); 
@@ -51,33 +51,18 @@ function Dmarc(){
         setAreaResult(result.join("\n"));
   } 
 
-  
-    const clearAll=()=>{
+ 
 
+    function clearAll(){
         setSelect1("DMARC1");
         setSelect2("none");
         setSelect3("none");
         setSelect4("");
         setSelect5("");
         setInp3(100);
-        setInp4("");
-        setInp5("");
-        setInp6("");
-        setAreaInput("");
-        setAreaResult("");
-
-    }
-
-    function reinitialiser(){
-        setSelect1("DMARC1");
-        setSelect2("none");
-        setSelect3("none");
-        setSelect4("");
-        setSelect5("");
-        setInp3(0);
         setInp4("mailto:dmarc");
         setInp5("mailto:dmarc");
-        setInp6("");
+        setInp6(1);
         setAreaInput("");
         setAreaResult("");
         setChecked1(false);
@@ -89,6 +74,7 @@ function Dmarc(){
         setChecked7(false);
         setChecked8(false);
         setChecked9(false);
+        setCheckedAll(false);
     }
 
 
@@ -128,7 +114,7 @@ function Dmarc(){
            )}
      
        
-            <label htmlFor="in2">Politque:</label><input type="checkBox" id="in2" checked={checked2} onChange={(e)=>setChecked2(e.target.checked)}/>
+            <label htmlFor="in2">Policy:</label><input type="checkBox" id="in2" checked={checked2} onChange={(e)=>setChecked2(e.target.checked)}/>
            {checked2 && (
             <>
             <select value={select2} onChange={(e)=>setSelect2(e.target.value)}>
@@ -143,7 +129,7 @@ function Dmarc(){
         
 
        
-            <label htmlFor="in3">Politque Sous domaine:</label><input type="checkBox" id="in3" checked={checked3} onChange={(e)=>setChecked3(e.target.checked)}/>
+            <label htmlFor="in3">subdomain policy:</label><input type="checkBox" id="in3" checked={checked3} onChange={(e)=>setChecked3(e.target.checked)}/>
            {checked3 && (
             <>
              <select value={select3} onChange={(e)=>setSelect3(e.target.value)}>
@@ -155,7 +141,7 @@ function Dmarc(){
             </>
            )}
    
-            <label htmlFor="in4">pct:</label><input type="checkBox" id="in4" checked={checked4} onChange={(e)=>setChecked4(e.target.checked)}/>
+            <label htmlFor="in4">percentage (pct):</label><input type="checkBox" id="in4" checked={checked4} onChange={(e)=>setChecked4(e.target.checked)}/>
             {checked4 && (
             <>
              <input type="number" value={inp3} onChange={(e)=>setInp3(e.target.value)}/>
@@ -163,7 +149,7 @@ function Dmarc(){
            )}
 
   
-            <label htmlFor="in5">rua:</label><input type="checkBox" id="in5" checked={checked5} onChange={(e)=>setChecked5(e.target.checked)}/>
+            <label htmlFor="in5">aggregate report URI (rua):</label><input type="checkBox" id="in5" checked={checked5} onChange={(e)=>setChecked5(e.target.checked)}/>
            {checked5 && (
             <>
             <input type="text" value={inp4} onChange={(e)=>setInp4(e.target.value)}/>
@@ -172,14 +158,14 @@ function Dmarc(){
 
            }
 
-            <label htmlFor="in6">ruf:</label><input type="checkBox" id="in6" checked={checked6} onChange={(e)=>setChecked6(e.target.checked)}/>
+            <label htmlFor="in6">forensic report URI (ruf):</label><input type="checkBox" id="in6" checked={checked6} onChange={(e)=>setChecked6(e.target.checked)}/>
            {checked6 && (
             <>
             <input type="text" value={inp5} onChange={(e)=>setInp5(e.target.value)}/>
             </>
            )}
      
-            <label htmlFor="in7">aspf:</label><input type="checkBox" id="in7" checked={checked7} onChange={(e)=>setChecked7(e.target.checked)}/>
+            <label htmlFor="in7">alignment for SPF (aspf):</label><input type="checkBox" id="in7" checked={checked7} onChange={(e)=>setChecked7(e.target.checked)}/>
            {checked7 && (
             <>
              <select value={select4} onChange={(e)=>setSelect4(e.target.value)}>
@@ -190,7 +176,7 @@ function Dmarc(){
             </>
            )}
         
-            <label htmlFor="in8">adkim:</label><input type="checkBox" id="in8" checked={checked8} onChange={(e)=>setChecked8(e.target.checked)} />
+            <label htmlFor="in8">alignment for DKIM (adkim):</label><input type="checkBox" id="in8" checked={checked8} onChange={(e)=>setChecked8(e.target.checked)} />
            {checked8 && (
             <>
              <select value={select5} onChange={(e)=>setSelect5(e.target.value)}>
@@ -203,10 +189,10 @@ function Dmarc(){
 
            }
        
-            <label htmlFor="in9">fo:</label><input type="checkBox" id="in9" checked={checked9} onChange={(e)=>setChecked9(e.target.checked)}/>
+            <label htmlFor="in9">failure options (fo):</label><input type="checkBox" id="in9" checked={checked9} onChange={(e)=>setChecked9(e.target.checked)}/>
            {checked9 && (
             <>
-            <input type="number" value={inp6} onChange={(e)=>setInp6(e.target.value)}/>
+            <input type="text" value={inp6} onChange={(e)=>setInp6(e.target.value)}/>
             </>
            )}
           
@@ -249,7 +235,6 @@ function Dmarc(){
         <div className={style.divbuttons}>
         <button onClick={()=>areaInput && creerRecord()}>Make record</button>
             <button onClick={clearAll}>Clear All</button>
-            <button onClick={reinitialiser}>Reset</button>
            
            <button onClick={() => navigator.clipboard.writeText(areaResult)}>
             Copy

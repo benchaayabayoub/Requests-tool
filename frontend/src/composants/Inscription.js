@@ -4,14 +4,14 @@ import styles from'./Inscription.module.css';
 import {Link, useNavigate} from "react-router-dom";
 
 
-function Insciption(){
+function Inscription(){
 
   const [nom,setNom]=useState("");
   const [email,setEmail]=useState("");
   const [password,setPassword]=useState("");
   const navigate=useNavigate();
 
-  const onHandleSubmit= async (e)=>{
+  const SubmitInscription= async (e)=>{
     e.preventDefault();
     try {
       if(nom==="" || email==="" || password==="")
@@ -22,7 +22,7 @@ function Insciption(){
       const res=await axios.post("http://localhost:6002/api/auth/inscription",{nom:nom,email:email,pass:password});
       alert(res.data.msg);
      
-      if(res.data.msg==="User added successfully"){
+      if(res.data.msg==="Your account has been created!"){
         navigate("/connexionn");
       }
       
@@ -36,11 +36,11 @@ function Insciption(){
   return(
     <div>
     
-    <form className={styles.Insciption} onSubmit={onHandleSubmit}>
-    <h2>Sign in Form</h2>
+    <form className={styles.formm} onSubmit={SubmitInscription}>
+    <h2>Sign Up</h2>
     <label htmlFor="txtNom">Full Name:</label><input type="text" value={nom} onChange={(e)=>setNom(e.target.value)} id="txtNom"></input>
-    <label htmlFor="txtNom">Email:</label><input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} id="txtEmail"/>
-    <label htmlFor="txtNom">Password:</label><input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} id="txtPass"/>
+    <label htmlFor="txtEmail">Email:</label><input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} id="txtEmail"/>
+    <label htmlFor="txtPass">Password:</label><input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} id="txtPass"/>
     <button type="submit">Sign in</button>
      Have an account ?<Link to="../connexionn">connect instead!</Link>
     </form>
@@ -48,4 +48,4 @@ function Insciption(){
   );
 }
 
-export default Insciption;
+export default Inscription;

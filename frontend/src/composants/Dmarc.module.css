@@ -1,3 +1,7 @@
+body, html, #root {
+  overflow-x: hidden; /* empêche le scroll horizontal */
+}
+
 .divGlobal{
     max-width: 800px;
     background-color:  white;
@@ -32,13 +36,13 @@
 
 .divArea{
     flex: 1;
-
+    
 }
 
 .divGlobal label{
   font-weight: 600;
   margin-bottom: 5px;
-  color: #333333;
+  color: black;
   font-size: 15px;
 }
 
@@ -64,6 +68,7 @@
 
 .divGlobal input[type="text"],
 .divGlobal input[type="number"]{
+    color: cornflowerblue;
     padding: 10px 12px;
     width:50%;
     height: 30px;
@@ -101,6 +106,7 @@
   cursor: pointer;
   transition: box-shadow 0.1s, border-color 0.8s;
   background-color: #ffffff;
+  color: cornflowerblue;
 }
 
 .divInterieure select:hover {

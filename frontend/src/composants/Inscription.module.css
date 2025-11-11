@@ -1,16 +1,12 @@
 body{
-    margin: 0;
-    padding: 0;
-    min-height: 100vh; /* occupe tout l’écran */
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* joli dégradé */
+    background-color: #f0f4f8;
 }
 
-form{
-
+.formm{
     max-width: 400px;
-    background-color:  white;
+    background-color:#fffafa ;
     gap:20px;
-    border: 1px solid;
+    border: 20px solid #f5f5f5;
     display: flex;
     flex-direction: column;
     border-radius: 12px;
@@ -18,17 +14,30 @@ form{
     padding: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 20px auto; 
+}
+
+
+.formm h2{
+
+
+    color: #007bff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: xx-large;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    text-shadow: 2px 2px 5px ;
     
 }
 
 
-form label{
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #333333;
+.formm label{
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333333;
 }
 
-form input[type="text"],
+
+.formm input[type="text"],
      input[type="email"],
      input[type="password"]{
 
@@ -41,16 +50,14 @@ form input[type="text"],
     transition: box-shadow 0.1s, border-color 0.8s;
 }
 
-
-form input[type="text"]:hover,
+.formm input[type="text"]:hover,
      input[type="email"]:hover,
      input[type="password"]:hover{
 
      border-color: #007bff;
 }
 
-
-form input[type="text"]:focus,
+.formm input[type="text"]:focus,
      input[type="email"]:focus,
      input[type="password"]:focus{
 
@@ -59,7 +66,7 @@ form input[type="text"]:focus,
     outline: none;
 }
 
-form button{
+.formm button{
     color:#ffffff;
     background-color: #007bff;
     font-size: 14px;
@@ -73,16 +80,12 @@ form button{
     transition: background-color 0.2s, transform 0.1s;
 }
 
-form button:hover{
+
+.formm button:hover{
     background-color: #0056b3;
     transform: translateY(-2px);
 }
 
-
-
-form button:active{
+.formm button:active{
     transform: translateX(10px);
 }
-
-
-  
