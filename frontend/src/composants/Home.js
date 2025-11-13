@@ -8,6 +8,7 @@ import { LiaExchangeAltSolid } from "react-icons/lia";
 import { GrDomain } from "react-icons/gr";
 import { SiJoomla } from "react-icons/si";
 import { RiShutDownLine } from "react-icons/ri";
+import { FaTelegramPlane } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 export default function Home(){
@@ -40,6 +41,9 @@ export default function Home(){
         navigate("/connexionn");
     }
 
+    const contactUs=()=>{
+      window.open("https://t.me/ayoub_ben", "_blank", "noopener,noreferrer");
+    }
 
     return(
         <>
@@ -48,6 +52,7 @@ export default function Home(){
             <div className={styles.leftPart}>
             <SiJoomla className={styles.iconeheader}/>
             <span>EMS Request Tool</span>
+            <span style={{cursor:"pointer",backgroundColor:"#4682B4"}} onClick={contactUs}><FaTelegramPlane className={styles.iconContact}/>  @ayoub_ben</span>
             </div>
             <div className={styles.rightPart}>
             <span>{nomUser}</span>
@@ -55,9 +60,10 @@ export default function Home(){
             </div>
         </header>
 
-        <div style={{width:"100%" ,display:"flex"}}>
+        <div className={styles.divGlobal}>
        
         <aside className={styles.menugauche}>
+           
             <section>Requests</section>
                 <nav>
                     <ul>
@@ -77,10 +83,13 @@ export default function Home(){
 
                 </nav>
             <section>Api</section>
+           
+           
+           
         </aside>
        
 
-        <main style={{alignItems:"center",flex:"1",padding:"50px"}}>
+        <main style={{flex:"1",padding:"10px",overflowY: "auto"}}>
         {composantAffiche==="Dmarc" && <Dmarc/>}
         {composantAffiche==="ChangeDomain" && <ChangeDomain/>}
         {composantAffiche==="Duplicate" && <Duplicate/>}
