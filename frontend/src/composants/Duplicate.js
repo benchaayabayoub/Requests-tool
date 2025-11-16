@@ -42,6 +42,10 @@ function Duplicate(){
   function addPoints(email,nbpoints){
     const [user,domaine]=email.split("@");
     let lettres=user.split("");
+    // juste après let lettres = user.split("");
+    let maxPoints = lettres.length - 1;
+    nbpoints = Math.min(nbpoints, maxPoints);
+
     let position;
 
     for(let i=0;i<nbpoints;i++){

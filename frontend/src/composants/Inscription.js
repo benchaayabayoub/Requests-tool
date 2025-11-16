@@ -41,7 +41,7 @@ function Inscription(){
     <label htmlFor="txtNom">Full Name:</label><input type="text" value={nom} onChange={(e)=>setNom(e.target.value)} id="txtNom"></input>
     <label htmlFor="txtEmail">Email:</label><input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} id="txtEmail"/>
     <label htmlFor="txtPass">Password:</label><input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} id="txtPass"/>
-    <button type="submit">Sign in</button>
+    <button type="submit">Sign up</button>
      Have an account ?<Link to="../connexionn">connect instead!</Link>
     </form>
     </div>

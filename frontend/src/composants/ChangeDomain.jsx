@@ -10,13 +10,15 @@ function ChangeDomain(){
 
     function generer(){
 
-        let ips=areaIp.split("\n");
-        let domains=areaDom.split("\n");
+        let ips=areaIp.split("\n").filter(r=>r !=="");
+        let domains=areaDom.split("\n").filter(r=>r !=="");
         let tableau=[];
 
-        for(let i=0;i<ips.length;i++){
-            let ip=ips[i].trim();
-            let domain=domains[i].trim();
+        let TopLength=Math.max(ips.length,domains.length);
+
+        for(let i=0;i<TopLength;i++){
+            let ip=ips[i]?.trim() || "";
+            let domain=domains[i]?.trim() || "";
             tableau.push(`${ip}${sep}${domain}`);
         }
         setAreaResult(tableau.join("\n"));

@@ -9,7 +9,7 @@ function App(){
   
 
   return(
-    <BrowserRouter>
+   <BrowserRouter>
       <Routes>
         <Route path="/" element={<Inscription/>}/>
         <Route path="/inscriptionn" element={<Inscription/>}/>

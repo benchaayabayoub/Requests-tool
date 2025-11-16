@@ -39,7 +39,7 @@ function Connexion(){
         <h2>Sign In</h2>
         <label htmlFor="txtEmail">Email:</label><input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} id="txtEmail"></input>
         <label htmlFor="txtPass">Password:</label><input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} id="txtPass"></input>
-        <button type="submit">Sign up</button>
+        <button type="submit">Sign in</button>
         Not a member? <Link to="/inscriptionn">Create an account</Link>
         </form>
 

@@ -5,12 +5,11 @@ const cnxDb=async()=>{
 
     try {
         await mongoose.connect(process.env.URI);
-        console.log(`connection to atlas OK sur le port: ${process.env.PORT}`);
+        console.log(`connexion to atlas OK sur le port: ${process.env.PORT}`);
     } catch (error) {
-        console.error("connection to atlas KO!");
+        console.error("connexion to atlas KO!",error.message);
     }
     
-
 }
 
 
