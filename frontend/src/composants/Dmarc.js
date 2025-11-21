@@ -12,7 +12,7 @@ function Dmarc(){
     const [checked7,setChecked7]=useState(false);
     const [checked8,setChecked8]=useState(false);
     const [checked9,setChecked9]=useState(false);
-    const [checkedAll,setCheckedAll]=useState(true);
+    const [checkedAll,setCheckedAll]=useState(false);
 
     const [select1,setSelect1]=useState("DMARC1");
     const [select2,setSelect2]=useState("none"); 

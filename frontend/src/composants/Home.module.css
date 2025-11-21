@@ -9,7 +9,7 @@
   font-size: 1.6rem;
   font-weight: 600;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* ombre douce */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -37,7 +37,7 @@
 }
 
 
-/* effet au survol du header */
+
 .barriere:hover {
   background: linear-gradient(90deg, white, #4a90e2);
   cursor: default;
@@ -55,8 +55,8 @@
 
 .menugauche {
   width: 220px;
-  background-color: #f8f9fa;         /* fond clair */
-  border-right: 5px solid #e0e0e0;   /* séparation nette */
+  background-color: #f8f9fa;
+  border-right: 5px solid #e0e0e0;
   padding: 20px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   
@@ -93,7 +93,7 @@
   color: #333;
   cursor: pointer;
   transition: all 0.25s ease;
-  font-family: inherit; /* hérite de la police du parent */
+  font-family: inherit; 
   box-shadow: 2px 2px 5px #004a9f;
   display: flex;
   gap:8px;
@@ -106,11 +106,11 @@
   background-color: #007bff;
   color: white;
   border-color: #007bff;
-  transform: translateX(14px); /* léger glissement à droite */
+  transform: translateX(14px);
   
 }
 
-/* Effet quand un bouton est actif (optionnel) */
+
 .menugauche button:focus{
   background-color: #0056b3;
   color: white;
@@ -140,7 +140,7 @@
 
 .iconeheader{
   color: antiquewhite;
-  font-size: 25px;
+  font-size: 35px;
 }
 
 

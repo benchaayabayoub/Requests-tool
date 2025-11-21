@@ -75,7 +75,6 @@ function Duplicate(){
 
    //return user+"+"+randomx+"@"+domaine;   OU:
    return `${user}+${randomx}@${domaine}`;
-   
     
   }
 
